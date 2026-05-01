@@ -56,7 +56,7 @@
 
         <div class="hero-visual">
           <div class="hero-glow"></div>
-          <img src="assets/y3ti-logo.png" alt="Y3TI mark">
+          <img src="assets/y3ti-logo.png" alt="">
         </div>
       </div>
     </section>
@@ -258,7 +258,7 @@
 
           <article class="work-item reverse">
             <div class="work-media">
-              <img src="assets/case-berkeley.webp" alt="City of Berkeley case study">
+              <img src="assets/case-berkeley.webp" alt="UCSF Campus Life Services case study">
               <span class="work-count">04 / 04</span>
             </div>
             <div class="work-copy">
@@ -346,7 +346,7 @@
           </dl>
         </div>
 
-        <iframe class="form-frame" name="google-form-target" title="Contact form submission"></iframe>
+        <iframe class="form-frame" name="google-form-target" title="Contact form submission" aria-hidden="true" tabindex="-1"></iframe>
         <form
           class="contact-form"
           action="https://docs.google.com/forms/d/e/1FAIpQLSelvFzlcb63I4tgn7tJwPKiYpGoIYGxaS4yN6eDVw6WqMPadg/formResponse"
@@ -356,15 +356,15 @@
           <div class="field-grid">
             <label>
               <span>Name</span>
-              <input type="text" name="entry.1276742685" placeholder="Your full name" required>
+              <input type="text" name="entry.1276742685" placeholder="Your full name" autocomplete="name" required>
             </label>
             <label>
               <span>Email</span>
-              <input type="email" name="entry.1721091728" placeholder="you@institution.edu" required>
+              <input type="email" name="entry.1721091728" placeholder="you@institution.edu" autocomplete="email" required>
             </label>
             <label>
               <span>Organization</span>
-              <input type="text" name="entry.1453381286" placeholder="University or agency">
+              <input type="text" name="entry.1453381286" placeholder="University or agency" autocomplete="organization" required>
             </label>
             <label>
               <span>Project type</span>
