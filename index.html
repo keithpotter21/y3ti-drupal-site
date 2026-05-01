@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#top">Skip to content</a>
   <header class="site-header">
     <div class="container nav-shell">
       <a class="brand" href="#top" aria-label="Y3TI home">
@@ -349,7 +350,7 @@
           </dl>
         </div>
 
-        <iframe class="form-frame" name="google-form-target" title="Contact form submission" aria-hidden="true" tabindex="-1"></iframe>
+        <iframe class="form-frame" name="google-form-target" title="" aria-hidden="true" tabindex="-1"></iframe>
         <form
           class="contact-form"
           action="https://docs.google.com/forms/d/e/1FAIpQLSelvFzlcb63I4tgn7tJwPKiYpGoIYGxaS4yN6eDVw6WqMPadg/formResponse"
@@ -446,11 +447,14 @@
       <p>&copy; 2026 Y3TI. All rights reserved.</p>
     </div>
   </footer>
+  <a class="back-to-top" href="#top" aria-label="Back to top">↑</a>
   <script>
     const contactForm = document.querySelector(".contact-form");
     const formFrame = document.querySelector(".form-frame");
     const formStatus = document.querySelector(".form-status");
     const submitButton = contactForm?.querySelector("button[type='submit']");
+    const heroSection = document.querySelector(".hero-wrap");
+    const backToTop = document.querySelector(".back-to-top");
     let formSubmitted = false;
 
     contactForm?.addEventListener("submit", () => {
@@ -471,6 +475,19 @@
       submitButton.disabled = false;
       formSubmitted = false;
     });
+
+    const toggleBackToTop = () => {
+      if (!heroSection || !backToTop) {
+        return;
+      }
+
+      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+      backToTop.classList.toggle("is-visible", window.scrollY > heroBottom);
+    };
+
+    toggleBackToTop();
+    window.addEventListener("scroll", toggleBackToTop, { passive: true });
+    window.addEventListener("resize", toggleBackToTop);
   </script>
 </body>
 </html>
