@@ -444,7 +444,7 @@
     </div>
 
     <div class="container footer-bottom">
-      <p>&copy; 2026 Y3TI. All rights reserved.</p>
+      <p>&copy; <span data-current-year>2026</span> Y3TI. All rights reserved.</p>
     </div>
   </footer>
   <a class="back-to-top" href="#top" aria-label="Back to top">↑</a>
@@ -455,7 +455,12 @@
     const submitButton = contactForm?.querySelector("button[type='submit']");
     const heroSection = document.querySelector(".hero-wrap");
     const backToTop = document.querySelector(".back-to-top");
+    const currentYear = document.querySelector("[data-current-year]");
     let formSubmitted = false;
+
+    if (currentYear) {
+      currentYear.textContent = new Date().getFullYear();
+    }
 
     contactForm?.addEventListener("submit", () => {
       formSubmitted = true;
