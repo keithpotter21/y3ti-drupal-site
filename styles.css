@@ -887,6 +887,15 @@ select {
   z-index: -1;
 }
 
+.form-frame {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .field-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -939,6 +948,18 @@ select {
   background: var(--text);
   color: var(--bg);
   font-weight: 600;
+}
+
+.form-footer button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.form-status {
+  min-height: 1.4em;
+  margin: 1rem 0 0;
+  color: var(--teal);
+  font-size: 0.92rem;
 }
 
 .site-footer {

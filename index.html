@@ -346,24 +346,30 @@
           </dl>
         </div>
 
-        <form class="contact-form">
+        <iframe class="form-frame" name="google-form-target" title="Contact form submission"></iframe>
+        <form
+          class="contact-form"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSelvFzlcb63I4tgn7tJwPKiYpGoIYGxaS4yN6eDVw6WqMPadg/formResponse"
+          method="POST"
+          target="google-form-target"
+        >
           <div class="field-grid">
             <label>
               <span>Name</span>
-              <input type="text" placeholder="Dana Alvarez">
+              <input type="text" name="entry.1276742685" placeholder="Your full name" required>
             </label>
             <label>
               <span>Email</span>
-              <input type="email" placeholder="you@institution.edu">
+              <input type="email" name="entry.1721091728" placeholder="you@institution.edu" required>
             </label>
             <label>
               <span>Organization</span>
-              <input type="text" placeholder="University or agency">
+              <input type="text" name="entry.1453381286" placeholder="University or agency">
             </label>
             <label>
               <span>Project type</span>
-              <select>
-                <option selected>Select one</option>
+              <select name="entry.1883701327" required>
+                <option value="" selected disabled>Select one</option>
                 <option>Drupal migration</option>
                 <option>Accessibility remediation</option>
                 <option>Ongoing support retainer</option>
@@ -376,7 +382,7 @@
 
           <label class="field-full">
             <span>Tell us about your project</span>
-            <textarea rows="6" placeholder="Platform context, timeline, constraints, accessibility drivers..."></textarea>
+            <textarea name="entry.521121540" rows="6" placeholder="Platform context, timeline, constraints, accessibility drivers..." required></textarea>
           </label>
 
           <div class="form-footer">
@@ -384,8 +390,9 @@
               By submitting, you consent to Y3TI contacting you about your inquiry.
               We never share contact information.
             </p>
-            <button type="button">Send inquiry</button>
+            <button type="submit">Send inquiry</button>
           </div>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -436,5 +443,31 @@
       <p>&copy; 2026 Y3TI. All rights reserved.</p>
     </div>
   </footer>
+  <script>
+    const contactForm = document.querySelector(".contact-form");
+    const formFrame = document.querySelector(".form-frame");
+    const formStatus = document.querySelector(".form-status");
+    const submitButton = contactForm?.querySelector("button[type='submit']");
+    let formSubmitted = false;
+
+    contactForm?.addEventListener("submit", () => {
+      formSubmitted = true;
+      formStatus.textContent = "Sending...";
+      submitButton.textContent = "Sending";
+      submitButton.disabled = true;
+    });
+
+    formFrame?.addEventListener("load", () => {
+      if (!formSubmitted) {
+        return;
+      }
+
+      contactForm.reset();
+      formStatus.textContent = "Thanks. Your inquiry has been sent.";
+      submitButton.textContent = "Send inquiry";
+      submitButton.disabled = false;
+      formSubmitted = false;
+    });
+  </script>
 </body>
 </html>
