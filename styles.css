@@ -56,6 +56,15 @@ select {
   font: inherit;
 }
 
+.visually-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    word-wrap: normal;
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+}
+
 .container {
   width: min(1240px, calc(100% - 48px));
   margin: 0 auto;
@@ -122,9 +131,17 @@ select {
   letter-spacing: -0.03em;
 }
 
-.brand img {
+/* .brand img,
+.brand svg {
   width: 34px;
   height: 34px;
+  object-fit: contain;
+} */
+
+.site-header .brand img,
+.site-header .brand svg {
+  width: 160px;
+  height: auto;
   object-fit: contain;
 }
 
@@ -188,7 +205,7 @@ select {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.hero h1,
+.hero h2,
 .section-title {
   margin: 0;
   font-family: "Cabinet Grotesk", sans-serif;
@@ -196,11 +213,11 @@ select {
   letter-spacing: -0.055em;
 }
 
-.hero h1 {
+.hero h2 {
   font-size: clamp(4rem, 9vw, 9rem);
 }
 
-.hero h1 span {
+.hero h2 span {
   display: block;
   background: var(--gradient);
   -webkit-background-clip: text;
@@ -1011,6 +1028,13 @@ select {
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 40px 0 28px;
+}
+
+.site-footer .footer-brand .brand img,
+.site-footer .footer-brand .brand svg {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
 }
 
 .footer-grid {
